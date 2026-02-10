@@ -10,8 +10,7 @@ FROM --platform=$BUILDPLATFORM node AS build
 
 WORKDIR /thewiki
 COPY --from=base /git/thewiki .
-RUN npm install --global retypeapp && \
-    retype build
+RUN npx retypeapp build
 
 FROM joseluisq/static-web-server
 
